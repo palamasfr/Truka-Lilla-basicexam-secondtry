@@ -34,8 +34,64 @@
         background-image: url("/assets/site/mapblue.jpg");
         background-size: cover;
     }
+    .div-line {
+      display: inline-block;
+    }
     #logoImage {
         display: block;
         margin: auto;
         width: 1000px;
+    }
+    .oneCharacter {
+      display: inline-block;
+      width: 25%;
+      box-sizing: border-box;
+      height: 380px;
+    }
+
+    .big-image {
+      display: block;
+      margin: auto;
+      height: 150px;
+    }
+    .big-image:hover {
+      background-image: url("/assets/aemon.png");
+    }
+    .bio {
+      display: block;
+      box-sizing: border-box;
+      margin: auto;
+      font-size: 0.5em;
+      padding: 2px;
+      vertical-align: middle;
+      height: 150px;
+    }
+    .oneCharacter img:hover {
+      cursor: pointer;
+    }
+
+    .searchbar {
+      position: absolute;
+      bottom : 20px;
+    }
+
+    #search-button:hover{
+      cursor: pointer;
+    }
+  
+    #search-text,
+  #search-button {
+    line-height: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+  }
+  
+  #search-text {
+   width:180px;
+  }
+
+  .oneCharacter img:hover {
+    cursor: pointer;
+    opacity: 0.6;
     }
