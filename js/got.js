@@ -17,15 +17,12 @@ function successAjax(xhttp) {
   showCharacters(realDatas);
   addSearching(realDatas);
   showDatasToUp();
-  console.log(realDatas);
   /*
-    Pár sorral lejebb majd ezt olvashatod:
-    IDE ÍRD A FÜGGVÉNYEKET!!!!!! NE EBBE AZ EGY SORBA HANEM INNEN LEFELÉ!
-
-    Na azokat a függvényeket ITT HÍVD MEG! 
-
-    A userDatas NEM GLOBÁLIS változó, ne is tegyétek ki globálisra. Azaz TILOS!
-    Ha valemelyik függvényeteknek kell, akkor paraméterként adjátok át.
+  Pár sorral lejebb majd ezt olvashatod:
+  IDE ÍRD A FÜGGVÉNYEKET!!!!!! NE EBBE AZ EGY SORBA HANEM INNEN LEFELÉ!
+  Na azokat a függvényeket ITT HÍVD MEG! 
+  A userDatas NEM GLOBÁLIS változó, ne is tegyétek ki globálisra. Azaz TILOS!
+  Ha valemelyik függvényeteknek kell, akkor paraméterként adjátok át.
   */
 }
 
@@ -64,13 +61,11 @@ function showCharacters(parameterArr) {
     var characterDiv = document.createElement('div');
     var main = document.querySelector('.down');
     characterDiv.className = 'oneCharacter';
+    var portraits = document.createElement('img');
+    portraits.className = 'portrait';
     var characterImage = document.createElement('img');
     characterImage.characterData = parameterArr[i];
     characterImage.className = 'big-image';
-    characterImage.addEventListener('hover', function ev() {
-      this.src = `/assets/${parameterArr.portrait}`;
-      this.show;
-    });
     var characterName = document.createElement('div');
     characterName.className = 'character-name';
     var icon = document.createElement('img');
@@ -83,10 +78,12 @@ function showCharacters(parameterArr) {
     bio.className = 'bio';
     icon.src = `/assets/houses/${parameterArr[i].house}.png`;
     characterImage.src = `/${parameterArr[i].picture}`;
+    portraits.src = `/${parameterArr[i].portrait}`;
     characterName.innerHTML = parameterArr[i].name;
     houseName.innerHTML = parameterArr[i].house;
     bio.innerHTML = parameterArr[i].bio;
     characterDiv.appendChild(characterImage);
+    characterDiv.appendChild(portraits);
     characterDiv.appendChild(characterName);
     characterDiv.appendChild(icon);
     characterDiv.appendChild(houseName);
@@ -99,7 +96,7 @@ function addSearching(realDatas) {
   var button = document.querySelector('#search-button');
   var input = document.querySelector('#search-text');
   input.placeholder = 'Search for characters';
-  button.addEventListener('click', function () {
+  button.addEventListener('click', function ev() {
     searching(input.value, realDatas);
     input.value = '';
   });
@@ -122,25 +119,14 @@ function searching(text, realDatas) {
 }
 
 function showDatasToUp(ParameterObj) {
-  var details = document.querySelector('.character-details');
-  details.innerHTML = '';
-  var nameOfCharacter = document.createElement('p');
+  var detailsToUp = document.querySelector('.character-details');
+  detailsToUp.innerHTML = '';
+  var nameOfCharacter = document.createElement('div');
   nameOfCharacter.className = 'up-name';
-  var houseOfCharacter = document.createElement('p');
+  var houseOfCharacter = document.createElement('div');
   houseOfCharacter.className = 'up-house';
-  if (ParameterObj !== '') {
-    var icon = document.createElement('img');
-    icon.src = `/assets/houses/${ParameterObj.house}`;
-    details.appendChild(icon);
-  } else {
-    icon.src = '/assets/houses/errorIcon.png';
-  }
   nameOfCharacter.innerHTML = ParameterObj.name;
   houseOfCharacter.innerHTML = ParameterObj.house;
-  details.appendChild(nameOfCharacter);
-  details.appendChild(houseOfCharacter);
-  details.appendChild(icon);
-}
-function mouseHover() {
-
+  detailsToUp.appendChild(nameOfCharacter);
+  detailsToUp.appendChild(houseOfCharacter);
 }

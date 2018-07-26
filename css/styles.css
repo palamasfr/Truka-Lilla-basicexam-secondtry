@@ -54,9 +54,7 @@
       margin: auto;
       height: 150px;
     }
-    .big-image:hover {
-      background-image: url("/assets/aemon.png");
-    }
+    
     .bio {
       display: block;
       box-sizing: border-box;
@@ -72,6 +70,7 @@
 
     .searchbar {
       position: absolute;
+      overflow: auto;
       bottom : 20px;
     }
 
@@ -95,3 +94,15 @@
     cursor: pointer;
     opacity: 0.6;
     }
+  .portrait {
+    display: none;
+  }
+  .big-image:hover ~ .portrait {
+    display: block;
+  }
+  .up-name {
+    color: #fff;
+  }
+  .up-house {
+    color: #fff;
+  }
